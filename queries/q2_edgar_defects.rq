@@ -1,0 +1,8 @@
+# The EDGAR entity register's LEI field, decomposed by defect class.
+PREFIX sec: <https://gov.tesseract.academy/def/securities#>
+SELECT ?reason (COUNT(?a) AS ?n) (SAMPLE(?v) AS ?example) WHERE {
+  ?a sec:assertedBy sec:edgarEntityRegister ;
+     sec:identifierValue ?v .
+  OPTIONAL { ?a sec:nonConformanceReason ?r }
+  BIND(COALESCE(?r, "valid") AS ?reason)
+} GROUP BY ?reason ORDER BY DESC(?n)

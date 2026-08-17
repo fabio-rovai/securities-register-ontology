@@ -1,0 +1,5 @@
+# GLEIF registration status of every LEI the SEC's surfaces assert.
+PREFIX sec: <https://gov.tesseract.academy/def/securities#>
+SELECT ?status (COUNT(?a) AS ?n) WHERE {
+  ?a a sec:IdentifierAssertion ; sec:leiRegistrationStatus ?status .
+} GROUP BY ?status ORDER BY DESC(?n)

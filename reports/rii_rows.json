@@ -1,0 +1,20 @@
+{
+ "edgar_entity_register_lei_field": {
+  "published": 773,
+  "conformant": 667,
+  "resolving": 110,
+  "population": 981355,
+  "harvest": "2026-08-17"
+ },
+ "nport_series_lei": {
+  "published": 12932,
+  "compared_cross_register": 12604,
+  "agreeing": 12504,
+  "harvest": "2026-08-17"
+ },
+ "nport_holdings_issuer_cusip": {
+  "published": 3564226,
+  "conformant": 3543498,
+  "harvest": "2026-08-17"
+ }
+}

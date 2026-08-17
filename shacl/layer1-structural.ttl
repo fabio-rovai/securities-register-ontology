@@ -1,0 +1,33 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix sec:  <https://gov.tesseract.academy/def/securities#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# Layer 1: structural integrity of the graph itself. A violation here is a
+# pipeline bug, not a register finding.
+
+sec:AssertionStructureShape a sh:NodeShape ;
+    sh:targetClass sec:IdentifierAssertion ;
+    sh:property [ sh:path sec:identifierValue ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path sec:inScheme ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path sec:assertedBy ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path sec:assertedOn ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:date ] ;
+    sh:property [ sh:path sec:aboutEntity ; sh:minCount 1 ] ;
+    sh:property [ sh:path sec:schemeConformant ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] .
+
+sec:NonConformantNeedsReasonShape a sh:NodeShape ;
+    sh:targetClass sec:IdentifierAssertion ;
+    sh:sparql [
+        sh:message "Assertion marked non-conformant without a recorded reason" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://gov.tesseract.academy/def/securities#schemeConformant> false .
+                FILTER NOT EXISTS { $this <https://gov.tesseract.academy/def/securities#nonConformanceReason> ?r }
+            }""" ;
+    ] .
+
+sec:ReconciliationStructureShape a sh:NodeShape ;
+    sh:targetClass sec:ReconciliationObservation ;
+    sh:property [ sh:path sec:leftAssertion ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path sec:rightAssertion ; sh:minCount 1 ; sh:maxCount 1 ] ;
+    sh:property [ sh:path sec:agrees ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:boolean ] ;
+    sh:property [ sh:path sec:observedOn ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:date ] .

@@ -1,0 +1,17 @@
+# Bulk register data: regenerable via pipeline/download.sh, never committed.
+data/*.zip
+data/*.csv
+data/*.json
+data/ncen/
+data/graph.ttl
+# Bulk derived files (regenerable); aggregate summaries ARE committed.
+reports/edgar_lei_populated.json
+reports/ncen_cik_lei_crosswalk.json
+reports/nport_cik_lei.json
+reports/nport_series_lei.json
+reports/nport_wanted_leis.json
+reports/gleif_edgar_records.json
+reports/gleif_wanted_found.json
+reports/ra_page1.json
+__pycache__/
+*.pyc

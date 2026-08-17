@@ -1,0 +1,12 @@
+# Dangling assertions: syntactically valid LEIs that do not exist at GLEIF.
+PREFIX sec: <https://gov.tesseract.academy/def/securities#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?entity ?label ?value ?register WHERE {
+  ?a a sec:IdentifierAssertion ;
+     sec:schemeConformant true ;
+     sec:resolvesToLEIRecord false ;
+     sec:identifierValue ?value ;
+     sec:assertedBy ?register ;
+     sec:aboutEntity ?entity .
+  OPTIONAL { ?entity rdfs:label ?label }
+} ORDER BY ?register ?value

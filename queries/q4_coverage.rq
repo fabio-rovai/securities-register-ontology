@@ -1,0 +1,6 @@
+# Held-but-silent: the operator holds the LEI on a form surface while the
+# entity register's field is empty.
+PREFIX sec: <https://gov.tesseract.academy/def/securities#>
+SELECT (COUNT(?o) AS ?heldButSilent) WHERE {
+  ?o a sec:CoverageObservation .
+}

@@ -1,0 +1,547 @@
+{
+ "stats": {
+  "members_total": 986703,
+  "members_main": 981355,
+  "lei_field_absent": 0,
+  "lei_null_or_empty": 980582,
+  "lei_populated": 773,
+  "listed_total": 7992,
+  "listed_populated": 25,
+  "ic_total": 2046,
+  "ic_populated": 15,
+  "sample_checked": 2020,
+  "sample_mismatch": 0
+ },
+ "bad_lei": [
+  {
+   "cik": 811868,
+   "lei": "000-16205",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1124941,
+   "lei": "571-323-3939",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1160330,
+   "lei": "551136842778",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2091545,
+   "lei": "254900N8SZTUDA261883",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2089505,
+   "lei": "33-4802710",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2090465,
+   "lei": "00000000020254099650",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2079740,
+   "lei": "DANGEROUS 7 SPV 2 LP",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2081855,
+   "lei": "DANGEROUS 7 SPV 1 LP",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2080095,
+   "lei": "984500A68A56888D9F02",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2074172,
+   "lei": "LOWERCARBON Q 10, LP",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2073179,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2065863,
+   "lei": "13915242",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2067717,
+   "lei": "BESPOKE STUDIOS INC.",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2064550,
+   "lei": "02009520",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2066059,
+   "lei": "LP023637",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2064259,
+   "lei": "FP-AW I, L.P.",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2064481,
+   "lei": "FP-AW II, L.P.",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2051342,
+   "lei": "204-955-4803",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2027275,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2027271,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2007413,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2005905,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2004367,
+   "lei": "0000000000",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2000762,
+   "lei": "(646) 508-0022",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1958461,
+   "lei": "81-3-6214-3600",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1924938,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1866134,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1865122,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1444799,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1428441,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1314612,
+   "lei": "424-231-9100",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1365341,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1507079,
+   "lei": "404-471-1634",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1516117,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1545625,
+   "lei": "000-000-0000",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1545465,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1549725,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1552911,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1552909,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1553106,
+   "lei": "442085765800",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1582251,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1592098,
+   "lei": "416-687-6652",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1611766,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1611811,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1613841,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1619661,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1653135,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1702013,
+   "lei": "549300JA4S68DHG0253",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1709493,
+   "lei": "6423888",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1724162,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1731594,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1734505,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1743249,
+   "lei": "(818) 510-3339",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1772726,
+   "lei": "303-999-5003",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1777828,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1814856,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1884371,
+   "lei": "703-801-8980",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1903637,
+   "lei": "720-574-9705",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1937045,
+   "lei": "8042123400",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 1937783,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 1959072,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2063839,
+   "lei": "US-CT.BER:3091043",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2061283,
+   "lei": "(212) 720-0300",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2063631,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2063354,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2064026,
+   "lei": "QUANTIC VC, LLC",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2064225,
+   "lei": "523900",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2064727,
+   "lei": "33-3870686",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2064453,
+   "lei": "33-2848775",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2065370,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2064899,
+   "lei": "515350932",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2065235,
+   "lei": "08922456",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2065139,
+   "lei": "20248263107",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2064569,
+   "lei": "10121791",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2066278,
+   "lei": "7503117 8100",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2066364,
+   "lei": "132688434",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2070382,
+   "lei": "6354004XUA4883FS3115",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2078722,
+   "lei": "THE FLYOVER LLC - WY",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2066225,
+   "lei": "333820631",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2066084,
+   "lei": "B286877",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2093257,
+   "lei": "GC TELEVISION, INC.",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2065712,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2091196,
+   "lei": "00000000000540342441",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2093093,
+   "lei": "00000000000540336880",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2093138,
+   "lei": "00000000000540343043",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2085292,
+   "lei": "WESTBOUND SPV VI, LP",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2098156,
+   "lei": "WUWALLACEFAMILYTRUST",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2063713,
+   "lei": "33-3904216",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2065290,
+   "lei": "OC-418608",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2087462,
+   "lei": "549300UVUTOXK7EQZT63",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2106778,
+   "lei": "00000000020260045623",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2085860,
+   "lei": "88-27434950000000000",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2108560,
+   "lei": "20VC FUND S-4, L.P.",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2065661,
+   "lei": "CR 415499",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2074760,
+   "lei": "254900D98F0CK6012145",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2064863,
+   "lei": "419960",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2087224,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2065347,
+   "lei": "1785582",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2135392,
+   "lei": "R. HOMES CAPITAL LLC",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2135044,
+   "lei": "N/A",
+   "bucket": "empty"
+  },
+  {
+   "cik": 2135913,
+   "lei": "2549006XAX610XN8M113",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 1997930,
+   "lei": "4157128275",
+   "bucket": "malformed"
+  },
+  {
+   "cik": 2130752,
+   "lei": "00000000020261722086",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2142244,
+   "lei": "391200WBITOQ28J7GZ18",
+   "bucket": "bad_checksum"
+  },
+  {
+   "cik": 2145299,
+   "lei": "00000000000000000000",
+   "bucket": "placeholder"
+  },
+  {
+   "cik": 2086593,
+   "lei": "9695500S8X5AD61NLO45",
+   "bucket": "bad_checksum"
+  }
+ ]
+}

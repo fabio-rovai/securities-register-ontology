@@ -1,0 +1,133 @@
+@prefix sec:  <https://gov.tesseract.academy/def/securities#> .
+@prefix scheme: <https://gov.tesseract.academy/def/securities/scheme#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://gov.tesseract.academy/def/securities> a owl:Ontology ;
+    dcterms:title "Securities Entity Register Ontology"@en ;
+    dcterms:description "An OWL 2 ontology for register integrity in US securities entity identification. Identity and status are never properties of an entity; they are dated claims by a named register. The ontology models the identifier assertions published by the SEC's EDGAR entity register, the SEC's structured form datasets (N-PORT, N-CEN), the SEC investment company series and class register, and the GLEIF LEI system, so that conformance and cross-register agreement become computable properties of the public record."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:created "2026-08-17"^^xsd:date ;
+    owl:versionInfo "0.1.0" .
+
+### Registers
+
+sec:Register a owl:Class ;
+    rdfs:label "Register"@en ;
+    rdfs:comment "A maintained public record system that publishes identifier assertions about entities: the EDGAR entity register, the GLEIF LEI system, the SEC investment company series and class register, a structured form dataset."@en .
+
+sec:RegisterOperator a owl:Class ;
+    rdfs:label "Register operator"@en .
+
+sec:operatedBy a owl:ObjectProperty ;
+    rdfs:domain sec:Register ; rdfs:range sec:RegisterOperator .
+
+### Entities and register objects
+
+sec:RegisteredEntity a owl:Class ;
+    rdfs:label "Registered entity"@en ;
+    rdfs:comment "A legal entity, filer, or person about which a register publishes identifier assertions."@en .
+
+sec:FundSeries a owl:Class ;
+    rdfs:subClassOf sec:RegisteredEntity ;
+    rdfs:label "Investment company series"@en ;
+    rdfs:comment "An EDGAR series (S-prefixed identifier). A series is the unit GLEIF registers when an LEI record names EDGAR (RA000665) as its registration authority."@en .
+
+sec:ShareClass a owl:Class ;
+    rdfs:subClassOf sec:RegisteredEntity ;
+    rdfs:label "Share class"@en .
+
+sec:seriesOf a owl:ObjectProperty ;
+    rdfs:domain sec:FundSeries ; rdfs:range sec:RegisteredEntity ;
+    rdfs:label "series of registrant"@en .
+
+### The load-bearing pattern: reified identifier assertions
+
+sec:IdentifierAssertion a owl:Class ;
+    rdfs:label "Identifier assertion"@en ;
+    rdfs:comment "A dated claim by a named register that a given identifier value denotes a given entity. Conformance to the identifier scheme's own declared rules is a recorded property of the assertion, never assumed."@en .
+
+sec:assertedBy a owl:ObjectProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range sec:Register ;
+    rdfs:label "asserted by"@en .
+
+sec:aboutEntity a owl:ObjectProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range sec:RegisteredEntity ;
+    rdfs:label "about entity"@en .
+
+sec:identifierValue a owl:DatatypeProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range xsd:string ;
+    rdfs:label "identifier value as published"@en ;
+    rdfs:comment "The literal string the register published, unrepaired. A phone number filed in an LEI field is recorded as that phone number."@en .
+
+sec:inScheme a owl:ObjectProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range sec:IdentifierScheme ;
+    rdfs:label "claimed scheme"@en ;
+    rdfs:comment "The scheme the publishing field claims the value belongs to (an LEI field claims scheme:LEI), whether or not the value conforms."@en .
+
+sec:assertedOn a owl:DatatypeProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range xsd:date ;
+    rdfs:label "asserted on"@en ;
+    rdfs:comment "Harvest or publication date of the register snapshot carrying the assertion. Part of assertion identity: distinct dated claims are distinct assertions."@en .
+
+sec:sourceField a owl:DatatypeProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range xsd:string ;
+    rdfs:label "source field"@en .
+
+sec:schemeConformant a owl:DatatypeProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range xsd:boolean ;
+    rdfs:label "scheme conformant"@en ;
+    rdfs:comment "True when the published value satisfies every rule the claimed scheme declares for itself in the scheme registry (length, character set, check digits)."@en .
+
+sec:nonConformanceReason a owl:DatatypeProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range xsd:string ;
+    rdfs:label "non-conformance reason"@en ;
+    rdfs:comment "One of: malformed, bad_checksum, placeholder (repeated single character or an N/A-style token published as a value), foreign_content (a value from a different scheme entirely: a phone number, an EIN, an entity name)."@en .
+
+sec:resolvesToLEIRecord a owl:DatatypeProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range xsd:boolean ;
+    rdfs:label "resolves to an LEI record"@en ;
+    rdfs:comment "For assertions in scheme:LEI: whether the value exists in the GLEIF golden copy at the assertion date. False marks a dangling assertion."@en .
+
+sec:leiRegistrationStatus a owl:DatatypeProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range xsd:string ;
+    rdfs:label "LEI registration status at GLEIF"@en ;
+    rdfs:comment "ISSUED, LAPSED, RETIRED, ANNULLED, DUPLICATE, MERGED, or absent. Recorded on the assertion because status is itself a dated claim by the GLEIF register."@en .
+
+sec:gleifLEI a owl:DatatypeProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range xsd:string ;
+    rdfs:label "LEI of the GLEIF record making this assertion"@en ;
+    rdfs:comment "On reverse assertions (GLEIF asserting an EDGAR identifier), the LEI whose golden-copy record carries the registeredAs value."@en .
+
+sec:gleifRegStatus a owl:DatatypeProperty ;
+    rdfs:domain sec:IdentifierAssertion ; rdfs:range xsd:string ;
+    rdfs:label "registration status of the asserting GLEIF record"@en .
+
+### Cross-register reconciliation
+
+sec:ReconciliationObservation a owl:Class ;
+    rdfs:label "Reconciliation observation"@en ;
+    rdfs:comment "A dated computation over two identifier assertions with the same subject and scheme from different registers, recording whether they agree. Disagreement is a first-class result."@en .
+
+sec:leftAssertion a owl:ObjectProperty ;
+    rdfs:domain sec:ReconciliationObservation ; rdfs:range sec:IdentifierAssertion .
+sec:rightAssertion a owl:ObjectProperty ;
+    rdfs:domain sec:ReconciliationObservation ; rdfs:range sec:IdentifierAssertion .
+sec:agrees a owl:DatatypeProperty ;
+    rdfs:domain sec:ReconciliationObservation ; rdfs:range xsd:boolean .
+sec:observedOn a owl:DatatypeProperty ;
+    rdfs:domain sec:ReconciliationObservation ; rdfs:range xsd:date .
+
+### Coverage: silence is a position
+
+sec:CoverageObservation a owl:Class ;
+    rdfs:label "Coverage observation"@en ;
+    rdfs:comment "A dated computation recording that a register holds an identifier for an entity in one publication surface while leaving the corresponding field in another surface empty. The empty field is treated as a published position of the register, not as missing data."@en .
+
+sec:holdingSurface a owl:DatatypeProperty ;
+    rdfs:domain sec:CoverageObservation ; rdfs:range xsd:string .
+sec:silentSurface a owl:DatatypeProperty ;
+    rdfs:domain sec:CoverageObservation ; rdfs:range xsd:string .

@@ -1,0 +1,10 @@
+# Cross-register disagreements: same entity, two LEIs across the boundary.
+PREFIX sec: <https://gov.tesseract.academy/def/securities#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?entity ?label ?leftValue ?rightValue WHERE {
+  ?o a sec:ReconciliationObservation ; sec:agrees false ;
+     sec:leftAssertion ?l ; sec:rightAssertion ?r .
+  ?l sec:aboutEntity ?entity ; sec:identifierValue ?leftValue .
+  ?r sec:identifierValue ?rightValue .
+  OPTIONAL { ?entity rdfs:label ?label }
+} ORDER BY ?entity

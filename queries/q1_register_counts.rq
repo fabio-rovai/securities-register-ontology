@@ -1,0 +1,5 @@
+# Assertions per register: how much each register actually says about LEIs.
+PREFIX sec: <https://gov.tesseract.academy/def/securities#>
+SELECT ?register (COUNT(?a) AS ?assertions) WHERE {
+  ?a a sec:IdentifierAssertion ; sec:assertedBy ?register .
+} GROUP BY ?register ORDER BY DESC(?assertions)

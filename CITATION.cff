@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this ontology or its findings, please cite it."
+title: "Securities Entity Register Ontology"
+version: 0.1.0
+date-released: 2026-08-17
+authors:
+  - family-names: Rovai
+    given-names: Fabio
+    affiliation: "Kampakis and Co Ltd (The Tesseract Academy)"
+repository-code: "https://github.com/fabio-rovai/securities-register-ontology"
+license: MIT
+keywords:
+  - register integrity
+  - LEI
+  - EDGAR
+  - FDTA
+  - SHACL
+  - ontology

@@ -1,0 +1,13 @@
+{
+  "title": "Securities Entity Register Ontology",
+  "description": "An open OWL 2 + SKOS + SHACL model for register integrity in US securities entity identification, measured against the EDGAR entity register, the GLEIF LEI golden copy, the open ISIN-LEI mapping, and the SEC N-PORT/N-CEN structured datasets. Companion artifact to the Register Assurance programme.",
+  "creators": [
+    {
+      "name": "Rovai, Fabio",
+      "affiliation": "Kampakis and Co Ltd (The Tesseract Academy)"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "keywords": ["register integrity", "LEI", "EDGAR", "FDTA", "SHACL", "ontology", "data quality"]
+}

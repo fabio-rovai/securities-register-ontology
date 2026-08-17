@@ -1,0 +1,92 @@
+@prefix scheme: <https://gov.tesseract.academy/def/securities/scheme#> .
+@prefix sec:  <https://gov.tesseract.academy/def/securities#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+
+# Each identifier scheme declares its OWN conformance rules as data. The
+# pipeline validates every published value against the rules its claimed
+# scheme declares here; nothing is hard-coded in the validator.
+
+sec:IdentifierScheme a owl:Class ;
+    rdfs:label "Identifier scheme"@en .
+
+sec:declaredLength a owl:DatatypeProperty ; rdfs:range xsd:integer .
+sec:declaredPattern a owl:DatatypeProperty ; rdfs:range xsd:string .
+sec:checkDigitAlgorithm a owl:DatatypeProperty ; rdfs:range xsd:string .
+sec:schemeAuthority a owl:DatatypeProperty ; rdfs:range xsd:string .
+sec:scopeNote a owl:AnnotationProperty .
+
+scheme:registry a skos:ConceptScheme ;
+    skos:prefLabel "US securities entity identifier schemes"@en .
+
+scheme:LEI a sec:IdentifierScheme, skos:Concept ;
+    skos:inScheme scheme:registry ;
+    skos:prefLabel "Legal Entity Identifier (ISO 17442)"@en ;
+    sec:declaredLength 20 ;
+    sec:declaredPattern "^[A-Z0-9]{18}[0-9]{2}$" ;
+    sec:checkDigitAlgorithm "ISO 7064 MOD 97-10 over base-36 expansion; remainder 1" ;
+    sec:schemeAuthority "GLEIF" ;
+    sec:scopeNote "Adopted as the joint legal entity identifier data standard for nine US financial agencies by 91 FR 38246, effective 2026-10-01."@en .
+
+scheme:CIK a sec:IdentifierScheme, skos:Concept ;
+    skos:inScheme scheme:registry ;
+    skos:prefLabel "Central Index Key"@en ;
+    sec:declaredLength 10 ;
+    sec:declaredPattern "^[0-9]{1,10}$" ;
+    sec:checkDigitAlgorithm "none" ;
+    sec:schemeAuthority "US Securities and Exchange Commission (EDGAR)" ;
+    sec:scopeNote "No check digit and no published syntactic constraint beyond being numeric; zero-padded to 10 digits in APIs."@en .
+
+scheme:SeriesID a sec:IdentifierScheme, skos:Concept ;
+    skos:inScheme scheme:registry ;
+    skos:prefLabel "EDGAR series identifier"@en ;
+    sec:declaredLength 10 ;
+    sec:declaredPattern "^S[0-9]{9}$" ;
+    sec:checkDigitAlgorithm "none" ;
+    sec:schemeAuthority "US Securities and Exchange Commission (EDGAR)" ;
+    sec:scopeNote "The unit GLEIF registers against RA000665; the SEC's own series and class register publishes no LEI for it."@en .
+
+scheme:ClassID a sec:IdentifierScheme, skos:Concept ;
+    skos:inScheme scheme:registry ;
+    skos:prefLabel "EDGAR class identifier"@en ;
+    sec:declaredLength 10 ;
+    sec:declaredPattern "^C[0-9]{9}$" ;
+    sec:checkDigitAlgorithm "none" ;
+    sec:schemeAuthority "US Securities and Exchange Commission (EDGAR)" .
+
+scheme:ISIN a sec:IdentifierScheme, skos:Concept ;
+    skos:inScheme scheme:registry ;
+    skos:prefLabel "International Securities Identification Number (ISO 6166)"@en ;
+    sec:declaredLength 12 ;
+    sec:declaredPattern "^[A-Z]{2}[A-Z0-9]{9}[0-9]$" ;
+    sec:checkDigitAlgorithm "Luhn over base-36 digit expansion" ;
+    sec:schemeAuthority "National numbering agencies under ANNA" .
+
+scheme:CUSIP a sec:IdentifierScheme, skos:Concept ;
+    skos:inScheme scheme:registry ;
+    skos:prefLabel "CUSIP"@en ;
+    sec:declaredLength 9 ;
+    sec:declaredPattern "^[0-9A-Z@#*]{8}[0-9]$" ;
+    sec:checkDigitAlgorithm "Modulus 10 double-add-double" ;
+    sec:schemeAuthority "CUSIP Global Services (American Bankers Association)" ;
+    sec:scopeNote "Proprietary and licence-restricted; published values inside SEC filings are analysed statistically here and never redistributed as a dataset."@en .
+
+scheme:FIGI a sec:IdentifierScheme, skos:Concept ;
+    skos:inScheme scheme:registry ;
+    skos:prefLabel "Financial Instrument Global Identifier"@en ;
+    sec:declaredLength 12 ;
+    sec:declaredPattern "^BBG[0-9A-Z]{8}[0-9]$" ;
+    sec:checkDigitAlgorithm "Modulus 10 double-add-double" ;
+    sec:schemeAuthority "Object Management Group / Bloomberg as registration authority" ;
+    sec:scopeNote "Proposed and then dropped from the FDTA joint standards final rule; no joint instrument identifier was adopted in its place."@en .
+
+scheme:EIN a sec:IdentifierScheme, skos:Concept ;
+    skos:inScheme scheme:registry ;
+    skos:prefLabel "Employer Identification Number"@en ;
+    sec:declaredLength 9 ;
+    sec:declaredPattern "^[0-9]{2}-?[0-9]{7}$" ;
+    sec:checkDigitAlgorithm "none" ;
+    sec:schemeAuthority "US Internal Revenue Service" ;
+    sec:scopeNote "Recorded because EIN-shaped values are among the foreign content published in EDGAR's LEI field."@en .

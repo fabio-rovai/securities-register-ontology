@@ -1,0 +1,125 @@
+{
+ "edgar_members_main": 981355,
+ "edgar_lei_populated": 773,
+ "edgar_by_reason": {
+  "valid": 667,
+  "malformed": 28,
+  "foreign_content": 28,
+  "bad_checksum": 14,
+  "placeholder": 36
+ },
+ "listed_total": 7992,
+ "listed_populated": 25,
+ "form_held_cik_pairs": 1973,
+ "coverage_held_not_surfaced": 1954,
+ "series_pairs_compared": 12604,
+ "series_disagree": 100,
+ "cik_pairs_compared": 12,
+ "cik_disagree": 1,
+ "sec_asserted_distinct_valid_leis": 15264,
+ "sec_asserted_lei_status_at_gleif": {
+  "missing": 0,
+  "ISSUED": 14498,
+  "LAPSED": 647,
+  "RETIRED": 107,
+  "DUPLICATE": 11,
+  "PENDING_TRANSFER": 1
+ },
+ "gleif_edgar_records": 27704,
+ "isin_census": {
+  "file": "lei-isin-20260817T071509.csv",
+  "rows": 9135428,
+  "distinct_leis": 98565,
+  "distinct_leis_with_us_isin": 21122,
+  "isin_buckets": {
+   "valid": 9135428
+  },
+  "lei_buckets": {
+   "valid": 9135428
+  },
+  "top20_prefixes": [
+   [
+    "DE",
+    4218203
+   ],
+   [
+    "US",
+    2281837
+   ],
+   [
+    "GB",
+    650214
+   ],
+   [
+    "CH",
+    614980
+   ],
+   [
+    "NL",
+    463546
+   ],
+   [
+    "FR",
+    211516
+   ],
+   [
+    "IT",
+    145815
+   ],
+   [
+    "SE",
+    124055
+   ],
+   [
+    "ES",
+    105918
+   ],
+   [
+    "TR",
+    103271
+   ],
+   [
+    "BE",
+    30920
+   ],
+   [
+    "ZA",
+    24685
+   ],
+   [
+    "IE",
+    23243
+   ],
+   [
+    "AT",
+    20216
+   ],
+   [
+    "PL",
+    17601
+   ],
+   [
+    "NO",
+    17157
+   ],
+   [
+    "KY",
+    14929
+   ],
+   [
+    "CZ",
+    11530
+   ],
+   [
+    "DK",
+    8341
+   ],
+   [
+    "PT",
+    8189
+   ]
+  ],
+  "us_rows": 2281837,
+  "us_share_pct": 24.98
+ }
+}

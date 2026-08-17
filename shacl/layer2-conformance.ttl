@@ -1,0 +1,55 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix sec:  <https://gov.tesseract.academy/def/securities#> .
+@prefix scheme: <https://gov.tesseract.academy/def/securities/scheme#> .
+
+# Layer 2: scheme conformance. One shape per defect class, so the validation
+# report IS the findings table. These target assertions made by SEC-operated
+# registers in the LEI scheme; each violation is one published defective value.
+
+sec:MalformedLEIShape a sh:NodeShape ;
+    sh:targetClass sec:IdentifierAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        sh:message "Register publishes a value in an LEI field that is not 20 characters of [A-Z0-9] ending in two digits" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://gov.tesseract.academy/def/securities#inScheme> <https://gov.tesseract.academy/def/securities/scheme#LEI> .
+                $this <https://gov.tesseract.academy/def/securities#nonConformanceReason> "malformed" .
+            }""" ;
+    ] .
+
+sec:ForeignContentLEIShape a sh:NodeShape ;
+    sh:targetClass sec:IdentifierAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        sh:message "Register publishes content from a different scheme entirely in an LEI field (phone number, EIN, entity name, file number)" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://gov.tesseract.academy/def/securities#inScheme> <https://gov.tesseract.academy/def/securities/scheme#LEI> .
+                $this <https://gov.tesseract.academy/def/securities#nonConformanceReason> "foreign_content" .
+            }""" ;
+    ] .
+
+sec:BadChecksumLEIShape a sh:NodeShape ;
+    sh:targetClass sec:IdentifierAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        sh:message "Register publishes a 20-character LEI-shaped value whose ISO 7064 MOD 97-10 check digits fail" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://gov.tesseract.academy/def/securities#inScheme> <https://gov.tesseract.academy/def/securities/scheme#LEI> .
+                $this <https://gov.tesseract.academy/def/securities#nonConformanceReason> "bad_checksum" .
+            }""" ;
+    ] .
+
+sec:PlaceholderLEIShape a sh:NodeShape ;
+    sh:targetClass sec:IdentifierAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        sh:message "Register publishes a placeholder (single repeated character) in an LEI field" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://gov.tesseract.academy/def/securities#inScheme> <https://gov.tesseract.academy/def/securities/scheme#LEI> .
+                $this <https://gov.tesseract.academy/def/securities#nonConformanceReason> "placeholder" .
+            }""" ;
+    ] .

@@ -1,0 +1,64 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix sec:  <https://gov.tesseract.academy/def/securities#> .
+
+# Layer 3: cross-register rules. Each shape is one boundary-defect class.
+
+sec:DanglingLEIShape a sh:NodeShape ;
+    sh:targetClass sec:IdentifierAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        sh:message "A syntactically valid LEI asserted by an SEC register does not exist in the GLEIF golden copy" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://gov.tesseract.academy/def/securities#inScheme> <https://gov.tesseract.academy/def/securities/scheme#LEI> .
+                $this <https://gov.tesseract.academy/def/securities#schemeConformant> true .
+                $this <https://gov.tesseract.academy/def/securities#resolvesToLEIRecord> false .
+            }""" ;
+    ] .
+
+sec:LapsedLEIShape a sh:NodeShape ;
+    sh:targetClass sec:IdentifierAssertion ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        sh:message "An LEI asserted by an SEC register is LAPSED at GLEIF at the assertion date" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://gov.tesseract.academy/def/securities#inScheme> <https://gov.tesseract.academy/def/securities/scheme#LEI> .
+                $this <https://gov.tesseract.academy/def/securities#leiRegistrationStatus> "LAPSED" .
+            }""" ;
+    ] .
+
+sec:RetiredOrAnnulledLEIShape a sh:NodeShape ;
+    sh:targetClass sec:IdentifierAssertion ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        sh:message "An LEI asserted by an SEC register is RETIRED, ANNULLED, MERGED or DUPLICATE at GLEIF" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://gov.tesseract.academy/def/securities#inScheme> <https://gov.tesseract.academy/def/securities/scheme#LEI> .
+                $this <https://gov.tesseract.academy/def/securities#leiRegistrationStatus> ?s .
+                FILTER(?s = "RETIRED" || ?s = "ANNULLED" || ?s = "MERGED" || ?s = "DUPLICATE")
+            }""" ;
+    ] .
+
+sec:CrossRegisterDisagreementShape a sh:NodeShape ;
+    sh:targetClass sec:ReconciliationObservation ;
+    sh:severity sh:Violation ;
+    sh:sparql [
+        sh:message "Two registers (or two surfaces of the same register) publish different LEIs for the same entity" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this <https://gov.tesseract.academy/def/securities#agrees> false .
+            }""" ;
+    ] .
+
+sec:HeldButSilentShape a sh:NodeShape ;
+    sh:targetClass sec:CoverageObservation ;
+    sh:severity sh:Warning ;
+    sh:sparql [
+        sh:message "The register operator holds this entity's LEI in one publication surface while its entity-register field is empty" ;
+        sh:select """
+            SELECT $this WHERE {
+                $this a <https://gov.tesseract.academy/def/securities#CoverageObservation> .
+            }""" ;
+    ] .
