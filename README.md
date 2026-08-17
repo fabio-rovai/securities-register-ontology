@@ -4,7 +4,7 @@ An open OWL 2 + SKOS + SHACL model for register integrity in US securities
 entity identification, tested against the entire public record on the day the
 Financial Data Transparency Act joint standards take effect territory: the
 EDGAR entity register (981,355 entities), the GLEIF LEI golden copy
-(3,403,856 records), the open ISIN-LEI mapping (9,135,428 rows), and the
+(3,404,295 records), the open ISIN-LEI mapping (9,135,428 rows), and the
 SEC's N-PORT and N-CEN structured datasets for 2026 Q2.
 
 ## The finding in one sentence
@@ -23,7 +23,7 @@ Headline numbers (all reproducible from `pipeline/`, all dual-computed):
   check digits.
 - 1,973 fund registrants reported their LEI to the SEC on Forms N-PORT and
   N-CEN in a single quarter; the entity register surfaces 12 of them.
-- GLEIF publishes an EDGAR-identifier crosswalk for 27,691 LEI records
+- GLEIF publishes an EDGAR-identifier crosswalk for 27,705 LEI records
   (series IDs and CIKs in `registeredAs`); no SEC surface publishes the
   reverse, and the SEC's series and class register has no LEI column.
 - Where the two sides of the series crosswalk can be compared (12,604
@@ -31,7 +31,7 @@ Headline numbers (all reproducible from `pipeline/`, all dual-computed):
   boundary, including checksum-detectable single-character substitutions
   and cyclically swapped sibling ETFs.
 - 56.6 percent of all US LEI records are LAPSED at GLEIF (202,698 of
-  358,275).
+  358,294).
 
 Full numbers, method, specimens, and the honest not-obtained list:
 [docs/BUILD_REPORT.md](docs/BUILD_REPORT.md).
@@ -67,7 +67,7 @@ tests/      offline unit tests (known-answer identifiers, parse checks)
 ```
 
 Bulk register data is never committed; `pipeline/download.sh` regenerates
-everything (about 2.5 GB). The graph (525,387 triples) is emitted directly
+everything (about 2.5 GB). The graph (526,098 triples) is emitted directly
 as Turtle text and parse-verified, then gated by
 `pipeline/governance_report.py`, which recomputes every headline set-based
 and via SPARQL/SHACL and exits non-zero on any disagreement.

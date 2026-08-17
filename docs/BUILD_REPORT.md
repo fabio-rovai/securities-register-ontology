@@ -10,7 +10,7 @@ which exits non-zero if the two computations ever disagree.
 | Source | File | Size | Licence |
 |---|---|---|---|
 | EDGAR bulk submissions (entity register) | `submissions.zip`, last modified 15 Aug 2026 | 1,558,343,702 bytes, 986,703 members | US Government work, public domain |
-| GLEIF golden copy lei2, 2026-08-17 08:00 publish | `lei2.csv.zip` | 499,198,036 bytes, 3,403,856 records | CC0 |
+| GLEIF golden copy lei2, 2026-08-17 16:00 publish | `lei2.csv.zip` | 499,272,552 bytes, 3,404,295 records | CC0 |
 | GLEIF ISIN-LEI mapping, 2026-08-17 07:15 | `isin-lei.zip` | 32,121,021 bytes, 9,135,428 rows | CC0 |
 | SEC Form N-PORT structured dataset 2026 Q2 | `2026q2_nport.zip` | 440,699,889 bytes | US Government work |
 | SEC Form N-CEN structured dataset 2026 Q2 | `2026q2_ncen.zip` | 8,404,110 bytes | US Government work |
@@ -34,7 +34,7 @@ companies present in the file (matched via company_tickers.json), 25 have a
 populated LEI (0.31 percent). Apple, whose LEI `HWUPKR0MPOU8FGXBT394` has
 been ISSUED at GLEIF, has a null `lei` field; so do Microsoft, JPMorgan, and
 essentially every household-name filer. For comparison, the same golden copy
-shows 358,275 US LEI records.
+shows 358,294 US LEI records.
 
 Method note: the census regex fast-path was cross-checked by fully parsing a
 random 2,020-member sample with `json.loads`; zero disagreements
@@ -71,10 +71,10 @@ bank-register-ontology build), now observed at a second US regulator.
 
 ### 4. GLEIF holds the reverse crosswalk the SEC does not
 
-27,704 LEI records in the golden copy name EDGAR (RA000665) as their
-registration authority: 22,672 carry an EDGAR series ID in registeredAs,
-5,019 carry a CIK, 13 carry something else. GLEIF therefore publishes an
-LEI-to-EDGAR-identifier mapping for 27,691 records, while no SEC surface
+27,718 LEI records in the golden copy name EDGAR (RA000665) as their
+registration authority: 22,688 carry an EDGAR series ID in registeredAs,
+5,017 carry a CIK, 13 carry something else. GLEIF therefore publishes an
+LEI-to-EDGAR-identifier mapping for 27,705 records, while no SEC surface
 publishes a CIK-to-LEI or series-to-LEI file at all. The SEC's own series
 and class register (19,340 series) has no LEI column.
 
@@ -108,7 +108,7 @@ record claiming them.
 Joining every distinct valid LEI asserted on an SEC surface against the
 golden copy classifies each as ISSUED, LAPSED, RETIRED-class, or absent
 (dangling). Headline: 56.6 percent of ALL US LEI records are LAPSED
-(202,698 of 358,275), materially worse than the global lapse rate; the
+(202,698 of 358,294), materially worse than the global lapse rate; the
 governance summary records the exact status distribution of SEC-asserted
 LEIs. All 667 valid LEIs in the entity register itself resolve to golden-copy
 records: the entity register's defects are emptiness and junk content, not

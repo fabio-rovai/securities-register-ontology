@@ -24,7 +24,7 @@ Following my note to GODIN about the FDIC's downstream republication of LEIs, we
 have completed the same audit for the SEC's registers, and part of the result is
 directly useful to your data quality programme.
 
-27,704 LEI records in the golden copy name EDGAR (RA000665) as their registration
+27,718 LEI records in the golden copy name EDGAR (RA000665) as their registration
 authority. We reconciled the series identifiers in those records against the
 series LEIs that the same funds report to the SEC on Form N-PORT. For 12,604
 series the comparison is possible; 12,504 agree. One hundred do not, and the

@@ -16,7 +16,7 @@ fetch () { # url outfile
 }
 
 fetch "https://isinmapping.gleif.org/api/v2/isin-lei/d6a9b6d7-f625-44c7-ad14-acdb1245e7bb/download" isin-lei.zip &
-fetch "https://goldencopy.gleif.org/storage/golden-copy-files/2026/08/17/1264880/20260817-0800-gleif-goldencopy-lei2-golden-copy.csv.zip" lei2.csv.zip &
+fetch "https://goldencopy.gleif.org/storage/golden-copy-files/2026/08/17/1265015/20260817-1600-gleif-goldencopy-lei2-golden-copy.csv.zip" lei2.csv.zip &
 fetch "https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip" submissions.zip &
 wait
 echo "ALL DOWNLOADS FINISHED"

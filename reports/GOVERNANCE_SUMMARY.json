@@ -20,12 +20,12 @@
  "sec_asserted_lei_status_at_gleif": {
   "missing": 0,
   "ISSUED": 14498,
-  "LAPSED": 647,
+  "LAPSED": 645,
   "RETIRED": 107,
   "DUPLICATE": 11,
-  "PENDING_TRANSFER": 1
+  "PENDING_TRANSFER": 3
  },
- "gleif_edgar_records": 27704,
+ "gleif_edgar_records": 27718,
  "isin_census": {
   "file": "lei-isin-20260817T071509.csv",
   "rows": 9135428,

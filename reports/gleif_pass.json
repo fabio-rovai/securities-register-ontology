@@ -1,61 +1,61 @@
 {
- "total_records": 3403856,
- "us_records": 358275,
+ "total_records": 3404295,
+ "us_records": 358294,
  "us_by_regstatus": {
   "LAPSED": 202698,
-  "ISSUED": 135106,
+  "ISSUED": 135124,
   "RETIRED": 18965,
   "DUPLICATE": 1436,
   "ANNULLED": 57,
-  "PENDING_ARCHIVAL": 10,
-  "PENDING_TRANSFER": 3
+  "PENDING_ARCHIVAL": 9,
+  "PENDING_TRANSFER": 5
  },
  "top_countries": [
   [
    "IN",
-   386277
+   386456
   ],
   [
    "US",
-   358275
+   358294
   ],
   [
    "IT",
-   257157
+   257161
   ],
   [
    "DE",
-   254113
+   254171
   ],
   [
    "GB",
-   230509
+   230538
   ],
   [
    "NL",
-   194864
+   194867
   ],
   [
    "ES",
-   192385
+   192390
   ],
   [
    "FR",
-   189179
+   189182
   ],
   [
    "SE",
-   119308
+   119327
   ],
   [
    "DK",
-   114050
+   114068
   ]
  ],
- "edgar_ra_records": 27704,
+ "edgar_ra_records": 27718,
  "edgar_registeredAs_formats": {
-  "series_id": 22672,
-  "cik_numeric": 5019,
+  "series_id": 22688,
+  "cik_numeric": 5017,
   "other": 13
  },
  "wanted_set": 42309,

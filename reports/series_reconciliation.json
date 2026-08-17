@@ -1,12 +1,12 @@
 {
  "registeredAs_formats": {
-  "series": 22672,
-  "cik": 5019,
+  "series": 22688,
+  "cik": 5017,
   "other": 13
  },
  "stats": {
-  "gleif_series": 22622,
-  "gleif_only": 10018,
+  "gleif_series": 22638,
+  "gleif_only": 10034,
   "compared": 12604,
   "agree": 12504,
   "gleif_sid_not_in_sec_series_register": 6149,
@@ -22704,7 +22704,7 @@
    "nport_lei": "529900QYMNYQRSH85I16",
    "agree": true,
    "n_gleif": 1,
-   "gleif_status": "LAPSED",
+   "gleif_status": "PENDING_TRANSFER",
    "name": "Symmetry Panoramic Sector Momentum ETF"
   },
   "S000081712": {

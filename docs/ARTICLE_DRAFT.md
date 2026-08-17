@@ -24,8 +24,8 @@ The EDGAR bulk submissions file is the SEC's entity register: 981,355 entity
 records, refreshed daily, one JSON document per CIK. Every record carries a
 top-level field named `lei`.
 
-The GLEIF golden copy is the global LEI register: 3,403,856 records in the
-17 August publish, of which 358,275 are US entities.
+The GLEIF golden copy is the global LEI register: 3,404,295 records in the
+17 August publish, of which 358,294 are US entities.
 
 The SEC's structured form datasets for 2026 Q2 record what regulated funds
 told the SEC on Forms N-PORT and N-CEN, including their own LEIs, their
@@ -89,9 +89,9 @@ wrong side of a control relationship at the register boundary.
 
 ## Finding four: the reverse crosswalk exists, at GLEIF
 
-27,704 LEI records in the golden copy name EDGAR as their registration
-authority and carry an EDGAR identifier in their registeredAs field: 22,672
-series IDs and 5,019 CIKs. GLEIF, a Swiss foundation, publishes a mapping
+27,718 LEI records in the golden copy name EDGAR as their registration
+authority and carry an EDGAR identifier in their registeredAs field: 22,688
+series IDs and 5,017 CIKs. GLEIF, a Swiss foundation, publishes a mapping
 from LEIs to SEC identifiers every day under CC0. The SEC publishes no
 mapping in either direction, and its own investment company series and class
 register, 19,340 series, has no LEI column at all. The authoritative
@@ -125,7 +125,7 @@ internally consistent. The defect exists only at the boundary.
 
 ## Finding six: most US LEIs are not current anyway
 
-Of 358,275 US LEI records, 202,698 are LAPSED: 56.6 percent, materially
+Of 358,294 US LEI records, 202,698 are LAPSED: 56.6 percent, materially
 worse than the global lapse rate. Among the LEIs asserted on SEC surfaces
 the status distribution is better but not clean, and the full breakdown is
 in the repository's governance summary. Adoption without renewal is not
