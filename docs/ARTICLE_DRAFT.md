@@ -1,4 +1,4 @@
-# Forty-five days before the LEI becomes the US entity standard, the SEC's register of 981,355 entities lists 773
+# The missing CIK-to-LEI crosswalk: an open ontology for US securities entity registers
 
 On 1 October 2026, the joint data standards rule under the Financial Data
 Transparency Act takes effect. Nine federal financial agencies, the SEC among
